@@ -96,15 +96,17 @@ function makeBuddies() {
   var aside = document.createElement("aside");
 
   var listOfBuddies  = document.createElement("ul");
-    listOfBuddies.appendChild(aside);
+    aside.appendChild(listOfBuddies);
       for (i = 0; i < buddies.length; i++) {
         var buddiesList = document.createElement("li");
         buddiesList.setAttribute("class", "buddies");
         buddiesList.setAttribute("id", buddies[i]);
         buddiesList.innerHTML = buddies[i];
         //console.log(buddiesList);
-        aside.appendChild(buddiesList);
+        listOfBuddies.appendChild(buddiesList);
   }
+        console.log(aside);
+
       var R = document.querySelectorAll("article");
       console.log(R[2]);
       var rivendell = R[1];
@@ -118,16 +120,17 @@ makeBuddies();
 
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
-      var S = document.querySelectorAll("");
+      var S = document.querySelector("Strider");
+      console.log(S);
+
+document.getElementById("Strider").innerHTML = "Aragorn";
 
 
-
-
-
-}
 console.log("beautifulStranger is working");
 
+}
 
+beautifulStranger();
 // Part 6
 
 function leaveTheShire() {
