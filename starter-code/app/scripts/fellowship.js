@@ -55,8 +55,9 @@ function makeHobbits() {
         var li = document.createElement("li");
         li.innerHTML =hobbits[i];
         li.setAttribute("class", "hobbits");
+        li.setAttribute("id", hobbits[i]);
         ul.appendChild(li);
-        //console.log(li);
+        console.log(li);
       }
       var shire = document.querySelector("article");
       shire.appendChild(ul);
@@ -98,11 +99,14 @@ function makeBuddies() {
     listOfBuddies.appendChild(aside);
       for (i = 0; i < buddies.length; i++) {
         var buddiesList = document.createElement("li");
+        buddiesList.setAttribute("class", "buddies");
+        buddiesList.setAttribute("id", buddies[i]);
         buddiesList.innerHTML = buddies[i];
         //console.log(buddiesList);
         aside.appendChild(buddiesList);
   }
       var R = document.querySelectorAll("article");
+      console.log(R[2]);
       var rivendell = R[1];
           console.log(R[1]);
       rivendell.appendChild(aside);
@@ -114,7 +118,9 @@ makeBuddies();
 
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
-      var S = document.querySelectorAll("aside");
+      var S = document.querySelectorAll("");
+
+
 
 
 
