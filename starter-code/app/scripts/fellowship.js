@@ -112,10 +112,14 @@ makeBuddies();
 
 // Part 5
 
-
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
+      var S = document.querySelectorAll("aside");
+
+
+
 }
+console.log("beautifulStranger is working");
 
 
 // Part 6
