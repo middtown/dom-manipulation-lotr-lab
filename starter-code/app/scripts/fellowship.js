@@ -22,14 +22,25 @@ var body = document.querySelector('body');
 
 // Part 1
 
-
 function makeMiddleEarth() {
-  // create a section tag with an id of middle-earth
-  // inside, add each land as an article tag
-  // inside each article tag include an h1 with the name of the land
-  // append middle-earth to your document body
-}
+    // create a section tag with an id of middle-earth
+    // inside, add each land as an article tag
+    // inside each article tag include an h1 with the name of the land
+    // append middle-earth to your document body//
+    var section = document.createElement("section");
+      section.setAttribute ("id", "middle-earth");
+    
+      for (i = 0; i < lands.length; i++) {
+          var article = document.createElement("article");
+          var h1 = document.createElement("h1");
+          h1.innerHTML = lands[i];
+          article.appendChild(h1);
+          section.appendChild(article);
+      }
 
+      body.appendChild(section);
+          console.log(section);
+}
 makeMiddleEarth();
 
 
@@ -38,8 +49,20 @@ makeMiddleEarth();
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
-}
+    console.log("hey");
+    var ul = document.createElement("ul");
 
+      for (i = 0; i < lands.length; i++) {
+        var li = document.createElement("li");
+        li.innerHTML =hobbits[i];
+        li.setAttribute("class", "hobbits");
+        ul.appendChild(li);
+        console.log(li);
+      }
+      var shire = document.querySelector("article");
+      shire.appendChild(ul);
+}
+makeHobbits();
 
 // Part 3
 
@@ -48,8 +71,18 @@ function keepItSecretKeepItSafe() {
   // give the div a class of 'magic-imbued-jewelry'
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
   // add the ring as a child of Frodo
-}
+    var div = document.createElement("div");
+    div.setAttribute("id", "the-ring");
+    div.setAttribute("class", "magic-imbued-jewlry");
+    console.log(div);
+    document.addEventListener("click", nazgulScreech);
+    var x = document.getElementsByClassName("hobbits");
+    console.log(x);
+    var frodo = x[0];
+    console.log(frodo);
 
+  }
+keepItSecretKeepItSafe();
 
 // Part 4
 
