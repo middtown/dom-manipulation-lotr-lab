@@ -57,7 +57,7 @@ function makeHobbits() {
         li.setAttribute("class", "hobbits");
         li.setAttribute("id", hobbits[i]);
         ul.appendChild(li);
-        console.log(li);
+        //console.log(li);
       }
       var shire = document.querySelector("article");
       shire.appendChild(ul);
@@ -108,9 +108,9 @@ function makeBuddies() {
         console.log(aside);
 
       var R = document.querySelectorAll("article");
-      console.log(R[2]);
+      //console.log(R[2]);
       var rivendell = R[1];
-          console.log(R[1]);
+          //console.log(R[1]);
       rivendell.appendChild(aside);
 }
 
@@ -119,24 +119,23 @@ makeBuddies();
 // Part 5
 
 function beautifulStranger() {
-  // change the 'Strider' textnode to 'Aragorn'
-      var S = document.querySelector("Strider");
-      console.log(S);
-
-document.getElementById("Strider").innerHTML = "Aragorn";
-
-
-console.log("beautifulStranger is working");
-
+  // change the 'Strider' textnode to 'Aragorn'  
+      document.getElementById("Strider").innerHTML = "Aragorn";
+          //console.log("beautifulStranger is working");
 }
-
 beautifulStranger();
+
+
 // Part 6
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
+
+  var hobbitsAssemble = document.querySelectorAll("buddies");
+  console.log(hobbitsAssemble);
 }
 
+leaveTheShire();
 
 // Part 7
 
