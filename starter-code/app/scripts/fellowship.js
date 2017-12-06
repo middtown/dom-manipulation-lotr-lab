@@ -19,131 +19,148 @@ var buddies = [
 var lands = ['The Shire', 'Rivendell', 'Mordor'];
 var body = document.querySelector('body');
 
-
-// Part 1
+// part 1
 
 function makeMiddleEarth() {
+  //console.log("middle-earth works");
     // create a section tag with an id of middle-earth
-    // inside, add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body//
-    var section = document.createElement("section");
-      section.setAttribute ("id", "middle-earth");
-    
-      for (i = 0; i < lands.length; i++) {
-          var article = document.createElement("article");
-          var h1 = document.createElement("h1");
-          h1.innerHTML = lands[i];
-          article.appendChild(h1);
-          section.appendChild(article);
-      }
-      body.appendChild(section);
-          //console.log(section);
+    var middleEarth = document.createElement('section');
+    for(var i = 0, arry = lands.length; i < arry; i++){
+      // add each land as an article tag
+      var land = document.createElement('article');
+      // inside each article tag include an h1 with the name of the land
+      var h1 = document.createElement("h1")                
+      var locations = document.createTextNode(lands[i]);    
+      h1.appendChild(locations);
+      land.appendChild(h1);
+      middleEarth.appendChild(land);
+    }
+    // append middle-earth to your document body
+    body.appendChild(middleEarth);
 }
+
+// part 2
+
 makeMiddleEarth();
 
-
-// Part 2
+var theShire = body.querySelectorAll('article')[0]; //give the shire a global accessble location.
+var rivendell = body.querySelectorAll('article')[1];//give the rivendell a global accessble location.
+var mordor = body.querySelectorAll('article')[2];//give the mordor a global accessble location.
 
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
+  var hobbitList = document.createElement('ul');
+  for(var i = 0, arry = hobbits.length; i < arry; i++){
   // give each hobbit a class of hobbit
-    console.log("hey");
-    var ul = document.createElement("ul");
-
-      for (i = 0; i < lands.length; i++) {
-        var li = document.createElement("li");
-        li.innerHTML =hobbits[i];
-        li.setAttribute("class", "hobbits");
-        li.setAttribute("id", hobbits[i]);
-        ul.appendChild(li);
-        //console.log(li);
-      }
-      var shire = document.querySelector("article");
-      shire.appendChild(ul);
+    var hobbit = document.createElement('li');
+    hobbit.className = 'hobbit';
+    var shortguys = document.createTextNode(hobbits[i]);
+    console.log(shortguys);
+    hobbit.appendChild(shortguys);
+    hobbitList.appendChild(hobbit);
+  }
+  theShire.appendChild(hobbitList);
 }
-makeHobbits();
 
-// Part 3
+makeHobbits();
+var frodo = body.querySelectorAll('li')[0]; //find frodo on a global level
+var sam = body.querySelectorAll('li')[1]; // same thing for sam
+var meriadoc = body.querySelectorAll('li')[2];
+var peregrin = body.querySelectorAll('li')[3]; // meriadoc and peregrin located globally
+console.log(frodo);
+console.log(sam);
+console.log(meriadoc);
+console.log(peregrin);
+
+// part 3
 
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
-  // give the div a class of 'magic-imbued-jewelry'
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
+  // give the div a class of 'magic-imbued-jewelry'
   // add the ring as a child of Frodo
-    var div = document.createElement("div");
-    div.setAttribute("id", "the-ring");
-    div.setAttribute("class", "magic-imbued-jewelry");
-    //console.log(div);
 
-    document.addEventListener("click", function(){ nazgulScreech();});
+  var theRing = document.createElement('div');
+  theRing.setAttribute('id', 'the-ring');
+  theRing.setAttribute('class', 'magic-imbued-jewelry');
+  theRing.addEventListener('click', nazgulScreech);
+  frodo.appendChild(theRing);
+}
 
-    var x = document.getElementsByClassName("hobbits");
-    var frodo = x[0];
-    frodo.appendChild(div);
-    //console.log(frodo);
-  }
 keepItSecretKeepItSafe();
 
-// Part 4
-
+// part 4
 
 function makeBuddies() {
   // create an aside tag
-  // attach an unordered list of the 'buddies' in the aside
-  // insert your aside as a child element of rivendell
+      // attach an unordered list of the 'buddies' in the aside
+        // insert your aside as a child element of rivendell
 
-  var aside = document.createElement("aside");
-
-  var listOfBuddies  = document.createElement("ul");
-    aside.appendChild(listOfBuddies);
-      for (i = 0; i < buddies.length; i++) {
-        var buddiesList = document.createElement("li");
-        buddiesList.setAttribute("class", "buddies");
-        buddiesList.setAttribute("id", buddies[i]);
-        buddiesList.innerHTML = buddies[i];
-        //console.log(buddiesList);
-        listOfBuddies.appendChild(buddiesList);
+  var aside = document.createElement('aside');
+  var buddyList = document.createElement('ul');
+  for(var i = 0, arry = buddies.length; i < arry; i++){ //use this rule if you need to set variables before the loop starts. WC3 Schools.
+    var buddy = document.createElement('li');
+    buddy.textContent = buddies[i];
+    buddyList.appendChild(buddy);
   }
-        console.log(aside);
-
-      var R = document.querySelectorAll("article");
-      //console.log(R[2]);
-      var rivendell = R[1];
-          //console.log(R[1]);
-      rivendell.appendChild(aside);
+  aside.appendChild(buddyList);
+  rivendell.appendChild(aside);
 }
-
 makeBuddies();
 
-// Part 5
+
+// part 5
+
+var strider = rivendell.querySelectorAll('li')[3];
+
 
 function beautifulStranger() {
-  // change the 'Strider' textnode to 'Aragorn'  
-      document.getElementById("Strider").innerHTML = "Aragorn";
-          //console.log("beautifulStranger is working");
+  // change the 'Strider' textnode to 'Aragorn'
+  strider.textContent = 'Aragon';
 }
+
 beautifulStranger();
 
+// part 6
 
-// Part 6
+var hobbits = theShire.querySelector('ul');
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
-
-  var hobbitsAssemble = document.querySelectorAll("buddies");
-  console.log(hobbitsAssemble);
+  rivendell.appendChild(hobbits);
 }
-
 leaveTheShire();
 
-// Part 7
-
+var fellowshipMembers = rivendell.querySelectorAll('li');
 
 function forgeTheFellowShip() {
   // create a new div called 'the-fellowship' within rivendell
-  // add each hobbit and buddy one at a time to 'the-fellowship'
-  // after each character is added make an alert that they have joined your party
+      // alert(fellowshipMembers[i].textContent + ' has joined the fellowship!');
+        // add each hobbit and buddy one at a time to 'the-fellowship'
+          // after each character is added make an alert that they have joined your party
+
+
+
+  var theFellowship = document.createElement('div');
+  theFellowship.setAttribute('id', 'the-fellowship');
+  for(var i = 0, arry = fellowshipMembers.length; i < arry; i++){
+    theFellowship.appendChild(fellowshipMembers[i]);
+  }
+  rivendell.appendChild(theFellowship);
+}
+
+forgeTheFellowShip();
+
+var gandalf = fellowshipMembers[0];
+
+ // part 7
+function theBalrog() {
+  // change the 'Gandalf' textNode to 'Gandalf the White'
+  // apply style to the element
+  // make the background 'white', add a grey border
+
+    gandalf.textContent = 'Gandalf the White';
+
 }
 
 
@@ -191,3 +208,23 @@ function thereAndBackAgain() {
   // remove all the baddies from the document
   // Move all the hobbits back to the shire
 }
+
+
+
+
+
+// // assemble the hobbits and move them to Rivendell
+//     console.log("leaving the shire");
+
+//   var hobbitsAssemble = document.getElementsByClassName("hobbits");
+//     var ulHobbit = document.createElement("ul");
+
+// for (i = 0; i < lands.length; i++) {
+//         var liHobbit = document.createElement("li");
+//         liHobbit.innerHTML =hobbits[i];
+//         liHobbit.setAttribute("class", "hobbits");
+//         liHobbit.setAttribute("id", hobbits[i]);
+//         console.log(liHobbit);
+//       }
+//       var rivendell = document.querySelector("article");
+//       rivendell.appendChild("hobbits");
